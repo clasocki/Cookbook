@@ -1,0 +1,146 @@
+﻿@using System.Globalization
+@model IEnumerable<Recipe>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript">
+    function loadXMLDoc(filename) {
+        var xhttp = new XMLHttpRequest();
+        var serverDir = '@Server.MapPath("~/App_Data/").Replace(@"\", @"\\")';
+
+        xhttp.open("GET", serverDir + filename, false);
+        xhttp.send("");
+
+        return xhttp.responseXML;
+    }
+
+    function xslTransform(transformer, xml) {
+        var xsl = loadXMLDoc(transformer);
+
+        var xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+
+        return xsltProcessor.transformToFragment(xml, document);
+    }
+
+    function displayNutritionFact(factId, ingredientQuantity, ingredientUnits) {
+        $.ajax({
+            url: //"http://localhost:19079/api/NutritionFacts" +
+                "@Url.Action("LoadNutritionFactHtml")",
+                //"?factId=" + factId +
+                //"&quantity=" + ingredientQuantity +
+                //"&units=" + ingredientUnits,
+            type: "GET",
+            data: {
+                factId: factId,
+                quantity: ingredientQuantity,
+                units: ingredientUnits
+            },
+            //xhrFields: {
+            //    withCredentials: true
+            //},
+            //crossDomain: true,
+            success: function (xhtml) {
+                //var resultDoc = xslTransform("nutritionFact.xsl", xml);
+                $('#nutritionFactContent').html(xhtml);
+                $('#myModal').modal();
+            }
+        });
+    }
+
+    $(function () {
+        $('.ingredients').click(function () {
+            var nutritionFactId = $(this).attr('id').substring("ingredient_".length);
+            var ingredientQuantity = $('#iQty_' + nutritionFactId).html().replace(',', '.');
+            var ingredientUnits = $('#iUnits_' + nutritionFactId).html();
+
+            displayNutritionFact(nutritionFactId, ingredientQuantity, ingredientUnits);
+
+        });
+    });
+</script>
+
+@foreach (var recipe in Model)
+{
+    var recipeId = recipe.title;
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading_@recipeId">
+                <h3>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@recipeId" aria-expanded="true" aria-controls="collapse_@recipeId">
+                        @Html.DisplayFor(modelItem => recipe.title)
+                    </a>
+                </h3>
+            </div>
+            <div id="collapse_@recipeId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@recipeId">
+                <div class="panel-body">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"><h3 class="panel-title">Składniki</h3></div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                @foreach (var ingredient in recipe.ingredients)
+                                {
+                                    <a href="javascript:void(0)" id="ingredient_@ingredient.factId" class="list-group-item ingredients">
+                                        <h4 class="list-group-item-heading">@Html.DisplayFor(modelItem => ingredient.name)</h4>
+                                        <p class="list-group-item-text">
+                                            <span id="iQty_@ingredient.factId">@ingredient.quantity</span>&nbsp;
+                                            <span id="iUnits_@ingredient.factId">@ingredient.units</span>
+                                        </p>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Sposób przygotowania</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                @foreach (var section in recipe.content)
+                                {
+                                    <div class="list-group-item">
+                                        <h4 class="list-group-item-heading">@Html.DisplayFor(modelItem => section.name)</h4>
+                                        <p class="list-group-item-text">@Html.DisplayFor(modelItem => section.Text)</p>
+                                    </div>
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div id="nutritionFactContent" class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

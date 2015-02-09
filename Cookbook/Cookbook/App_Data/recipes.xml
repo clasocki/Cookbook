@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<recipes xmlns="http://students.mimuw.edu.pl/~cl320813/recipes">
+  <recipe id="1" xmlns="">
+    <title>title1</title>
+    <preparationTime units="h">1</preparationTime>
+    <portions>1</portions>
+    <ingredients>
+      <ingredient factId="1">
+        <name>name1</name>
+        <quantity>1</quantity>
+        <units>kg</units>
+      </ingredient>
+      <ingredient factId="-2147483647">
+        <name>name2</name>
+        <quantity>-79228162514264337593543950335</quantity>
+        <units>dag</units>
+      </ingredient>
+      <ingredient factId="2147483647">
+        <name>name3</name>
+        <quantity>79228162514264337593543950335</quantity>
+        <units>g</units>
+      </ingredient>
+    </ingredients>
+    <content>
+      <section name="name1">textsection1</section>
+      <section name="name2">textsection2</section>
+      <section name="name3">textsection3</section>
+    </content>
+  </recipe>
+  <recipe id="-2147483647" xmlns="">
+    <title>title2</title>
+    <preparationTime units="min">-79228162514264337593543950335</preparationTime>
+    <portions>-2147483647</portions>
+    <ingredients>
+      <ingredient factId="0">
+        <name>name4</name>
+        <quantity>0.9</quantity>
+        <units>mg</units>
+      </ingredient>
+      <ingredient factId="2">
+        <name>name5</name>
+        <quantity>1.1</quantity>
+        <units>oz</units>
+      </ingredient>
+      <ingredient factId="-2147483646">
+        <name>name6</name>
+        <quantity>-79228162514264337593543950335</quantity>
+        <units>lb</units>
+      </ingredient>
+    </ingredients>
+    <content>
+      <section name="name4">textsection4</section>
+      <section name="name5">textsection5</section>
+      <section name="name6">textsection6</section>
+    </content>
+  </recipe>
+  <recipe id="2147483647" xmlns="">
+    <title>title3</title>
+    <preparationTime units="s">79228162514264337593543950335</preparationTime>
+    <portions>2147483647</portions>
+    <ingredients>
+      <ingredient factId="2147483646">
+        <name>name7</name>
+        <quantity>79228162514264337593543950335</quantity>
+        <units>l</units>
+      </ingredient>
+      <ingredient factId="-1">
+        <name>name8</name>
+        <quantity>0.8</quantity>
+        <units>ml</units>
+      </ingredient>
+      <ingredient factId="3">
+        <name>name9</name>
+        <quantity>1.2</quantity>
+        <units>tsp</units>
+      </ingredient>
+    </ingredients>
+    <content>
+      <section name="name7">textsection7</section>
+      <section name="name8">textsection8</section>
+      <section name="name9">textsection9</section>
+    </content>
+  </recipe>
+</recipes>

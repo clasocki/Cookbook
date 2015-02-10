@@ -48,7 +48,25 @@ namespace Cookbook.Controllers
             return HttpNotFound();
         }
 
-        private string TransformWithArgs(string xmlString, List<KeyValuePair<string, object>> xsltArgs, string xsltPath)
+        private string Transform(string xmlString, string xsltPath)
+        {
+            var xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlString);
+
+            using (var stream = new StringWriter())
+            {
+                using (var xmlWriter = XmlWriter.Create(stream, new XmlWriterSettings { ConformanceLevel = ConformanceLevel.Auto }))
+                {
+                    var xslTransform = new XslCompiledTransform();
+                    xslTransform.Load(xsltPath);
+                    xslTransform.Transform(xmlDocument, xmlWriter);
+                }
+
+                return stream.ToString();
+            }
+        }
+
+        private string Transform(string xmlString, string xsltPath, List<KeyValuePair<string, object>> xsltArgs)
         {
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlString);
@@ -100,7 +118,24 @@ namespace Cookbook.Controllers
                 };
                 var xsltDocPath = Server.MapPath("~/App_Data/nutritionFact.xsl");
 
-                return TransformWithArgs(responseContent, argList, xsltDocPath);
+                return Transform(responseContent, xsltDocPath, argList);
+            }
+
+            return "";
+        }
+
+        public async Task<string> LoadRecipeSummaryHtml(int recipeId)
+        {
+            var response =
+                await
+                    CallRestApiAsync(string.Format("api/Recipes/summary/{0}", recipeId));
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var xsltDocPath = Server.MapPath("~/App_Data/recipeSummary.xsl");
+
+                return Transform(responseContent, xsltDocPath);
             }
 
             return "";

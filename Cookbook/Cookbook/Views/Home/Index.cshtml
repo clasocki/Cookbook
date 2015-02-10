@@ -27,25 +27,16 @@
 
     function displayNutritionFact(factId, ingredientQuantity, ingredientUnits) {
         $.ajax({
-            url: //"http://localhost:19079/api/NutritionFacts" +
-                "@Url.Action("LoadNutritionFactHtml")",
-                //"?factId=" + factId +
-                //"&quantity=" + ingredientQuantity +
-                //"&units=" + ingredientUnits,
+            url: "@Url.Action("LoadNutritionFactHtml")",
             type: "GET",
             data: {
                 factId: factId,
                 quantity: ingredientQuantity,
                 units: ingredientUnits
             },
-            //xhrFields: {
-            //    withCredentials: true
-            //},
-            //crossDomain: true,
             success: function (xhtml) {
-                //var resultDoc = xslTransform("nutritionFact.xsl", xml);
                 $('#nutritionFactContent').html(xhtml);
-                $('#myModal').modal();
+                $('#nutritionFactModal').modal();
             }
         });
     }
@@ -59,20 +50,47 @@
             displayNutritionFact(nutritionFactId, ingredientQuantity, ingredientUnits);
 
         });
+
+        $('.summary').click(function() {
+            var recipeId = $(this).attr('id').substring("summary_".length);
+            $.ajax({
+                url: "@Url.Action("LoadRecipeSummaryHtml")",
+                type: "GET",
+                data: {
+                    recipeId: recipeId
+                },
+                success: function (xhtml) {
+                    $('#nutritionFactContent').html(xhtml);
+                    $('#nutritionFactModal').modal();
+                }
+            });
+        });
     });
 </script>
 
 @foreach (var recipe in Model)
 {
-    var recipeId = recipe.title;
+    var recipeId = recipe.id;
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="heading_@recipeId">
-                <h3>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@recipeId" aria-expanded="true" aria-controls="collapse_@recipeId">
-                        @Html.DisplayFor(modelItem => recipe.title)
-                    </a>
-                </h3>
+            <div class="panel-heading row" role="tab" id="heading_@recipeId">
+                <div class="col-md-9">
+                    <h4>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse_@recipeId" aria-expanded="true" aria-controls="collapse_@recipeId">
+                            @Html.DisplayFor(modelItem => recipe.title)
+                        </a>
+                    </h4>
+                </div>
+                <div class="col-md-2">
+                    <button id="summary_@recipeId" type="button" class="btn btn-default summary" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>Nutrition facts
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button id="download_@recipeId" type="button" class="btn btn-default summary" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>Pdf
+                    </button>
+                </div>
             </div>
             <div id="collapse_@recipeId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@recipeId">
                 <div class="panel-body">
@@ -120,13 +138,8 @@
     </div>
 }
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="nutritionFactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

@@ -116,8 +116,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="App_Data\nutritionFacts.cs">
+      <DependentUpon>nutritionFacts.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\recipes.cs">
       <DependentUpon>recipes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\recipeSummary.cs">
+      <DependentUpon>recipeSummary.xsd</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -130,6 +136,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\printableRecipe.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\nutritionLabel.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\recipeSummary.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\recipeSummary.xsl">
       <SubType>Designer</SubType>
     </Content>
@@ -157,6 +172,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="App_Data\recipes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Data\recipeSummary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

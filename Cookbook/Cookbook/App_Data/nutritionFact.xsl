@@ -2,10 +2,17 @@
 
 <xsl:stylesheet version="1.0"
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:import href="nutritionLabel.xsl"/>
   <xsl:output method="html" indent="yes"/> 
   <xsl:param name="quantity" />
-  
+
   <xsl:template match="nutrition-fact">
+    <xsl:call-template name="nutrition-label">
+      <xsl:with-param name="base" select="."/>
+    </xsl:call-template>
+  </xsl:template>
+  
+  <!--<xsl:template match="nutrition-fact">
     <div class="performance-facts">
       <header class="performance-facts__header">
         <h1 class="performance-facts__title"><xsl:value-of select="food-name"/></h1>
@@ -25,7 +32,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
               <b>% Daily Value*</b>
             </td>
         </tr>
-        <!-- CALORIES -->
+        --><!-- CALORIES --><!--
         <xsl:call-template name="super-fact-row">
           <xsl:with-param name="category">Calories</xsl:with-param>
           <xsl:with-param name="node" select="calories" />
@@ -42,7 +49,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <xsl:with-param name="category">From protein</xsl:with-param>
           <xsl:with-param name="node" select="calories/from-protein" />
         </xsl:call-template>
-        <!-- FATS -->
+        --><!-- FATS --><!--
         <xsl:call-template name="super-fact-row">
           <xsl:with-param name="category">Total fat</xsl:with-param>
           <xsl:with-param name="node" select="fats" />
@@ -60,7 +67,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <xsl:with-param name="node" select="fats/polyunsaturated-fat" />
         </xsl:call-template>
   
-        <!-- CARBOHYDRATES -->
+        --><!-- CARBOHYDRATES --><!--
         <xsl:call-template name="super-fact-row">
           <xsl:with-param name="category">Total carbohydrates</xsl:with-param>
           <xsl:with-param name="node" select="carbohydrates" />
@@ -74,7 +81,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <xsl:with-param name="node" select="carbohydrates/sugars" />
         </xsl:call-template>
         
-        <!-- MINERALS -->
+        --><!-- MINERALS --><!--
         <xsl:call-template name="super-fact-row">
           <xsl:with-param name="category">Total minerals</xsl:with-param>
           <xsl:with-param name="node" select="minerals" />
@@ -100,13 +107,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
           <xsl:with-param name="node" select="minerals/Sodium" />
         </xsl:call-template>
         
-        <!-- PROTEINS -->
+        --><!-- PROTEINS --><!--
         <xsl:call-template name="single-super-fact-row">
           <xsl:with-param name="category">Proteins</xsl:with-param>
           <xsl:with-param name="node" select="proteins" />
         </xsl:call-template>
         
-        <!-- VITAMINS -->
+        --><!-- VITAMINS --><!--
         <xsl:call-template name="super-fact-row">
           <xsl:with-param name="category">Total vitamins</xsl:with-param>
           <xsl:with-param name="node" select="vitamins" />
@@ -131,14 +138,29 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       </table>
       <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
     </div>
-  </xsl:template>
+  </xsl:template>-->
   
   <xsl:template match="daily-values" />
+  
+  <xsl:template name="superFactTotalValueCalculation">
+    <xsl:param name="node"/>
+    <xsl:value-of select="sum($node/*) * $quantity div @quantity" />
+  </xsl:template>
+  
+  <xsl:template name="subFactTotalValueCalculation">
+    <xsl:param name="node"/>
+    <xsl:value-of select="$node * $quantity div @quantity"/>
+  </xsl:template>
 
-  <xsl:template name="super-fact-row">
+  <!--<xsl:template name="super-fact-row">
     <xsl:param name="category" />
     <xsl:param name="node" />
-    <xsl:variable name="total" select="sum($node/*) * $quantity" />
+    --><!--<xsl:variable name="total" select="sum($node/*) * $quantity div @quantity" />--><!--
+    <xsl:variable name="total">
+      <xsl:call-template name="superFactTotalValueCalculation">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:variable name="total-recommended" select="sum(//daily-values/*[name(.)=name($node)]/*)" />
     <tr>
       <th colspan="2">
@@ -158,7 +180,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="sub-fact-row">
     <xsl:param name="category" />
     <xsl:param name="node" />
-    <xsl:variable name="total" select="$node * $quantity"/>
+    --><!--<xsl:variable name="total" select="$node * $quantity div @quantity"/>--><!--
+    <xsl:variable name="total">
+      <xsl:call-template name="subFactTotalValueCalculation">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:variable name="total-recommended" select="//daily-values/*/*[name(.)=name($node)]" />
     <tr>
       <td class="blank-cell">
@@ -178,7 +205,12 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="single-super-fact-row">
     <xsl:param name="category" />
     <xsl:param name="node" />
-    <xsl:variable name="total" select="$node * $quantity" />
+    --><!--<xsl:variable name="total" select="$node * $quantity div @quantity" />--><!--
+    <xsl:variable name="total">
+      <xsl:call-template name="superFactTotalValueCalculation">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
+    </xsl:variable>
     <tr>
       <th colspan="2">
         <b>
@@ -194,6 +226,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         </b>
       </td>
     </tr>
-  </xsl:template>
+  </xsl:template>-->
 
 </xsl:stylesheet>

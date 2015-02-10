@@ -38,13 +38,25 @@ namespace RecipeService.Controllers
         [ResponseType(typeof(RecipeSummary))]
         public IHttpActionResult GetRecipeSummary(int recipeId)
         {
-            var recipe = db.Recipes.Find(recipeId);
+            var recipe = db.Recipes
+                .Include(x => x.ingredients)
+                .Include(x => x.content)
+                .Include(x => x.ingredients)
+                .Include(x => x.ingredients.Select(y => y.NutritionFact))
+                .SingleOrDefault(x => x.id == recipeId);
 
             if (recipe == null)
                 return NotFound();
 
             var ingredients = recipe.ingredients;
             var nutritionFacts = ingredients.Select(x => x.NutritionFact).ToList();
+
+            //var recalculatedNutritionFacts = from fact in nutritionFacts
+            //                                 join ingredient in ingredients
+            //                                 on fact.id equals ingredient.NutritionFactId
+            //                                 into joinedFacts
+            //                                 from joinedFact in joinedFacts
+            //                                 select 
 
             var dailyValues = db.DailyValues.Find(1);
 

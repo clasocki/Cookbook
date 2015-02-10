@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="recipeSummary"
+    targetNamespace="http://tempuri.org/recipeSummary.xsd"
+    xmlns:tns="http://tempuri.org/recipeSummary.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:rs="http://students.mimuw.edu.pl/~cl320813/recipes"
+    xmlns:nfs="http://students.mimuw.edu.pl/~cl320813/nutritionFacts"
+>
+  <xs:import namespace="http://students.mimuw.edu.pl/~cl320813/recipes" schemaLocation="recipes.xsd"/>
+  <xs:import namespace="http://students.mimuw.edu.pl/~cl320813/nutritionFacts" schemaLocation="nutritionFacts.xsd" />
+  <xs:complexType name="RecipeSummary">
+    <xs:sequence>
+      <xs:element name="ingredients" type="rs:Ingredients" />
+      <xs:element name="nutrition-facts" type="nfs:NutritionFacts" />
+      <xs:element name="daily-values" type="nfs:DailyValues" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="recipe-summary" type="tns:RecipeSummary" />
+  
+</xs:schema>

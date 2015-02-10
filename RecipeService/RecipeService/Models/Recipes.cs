@@ -363,7 +363,7 @@ public enum MeasurementUnit
     cup,
 }
 
-[System.SerializableAttribute()]
+/*[System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 public class RecipeSummary
@@ -378,7 +378,7 @@ public class RecipeSummary
  
     [XmlElement("daily-values")]
     public DailyValues DailyValues { get; set; }
-}
+}*/
 
 
 ////------------------------------------------------------------------------------

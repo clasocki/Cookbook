@@ -39,3 +39,44 @@ C:\Users\Czarek\documents\visual studio 2013\Projects\RecipeService\RecipeServic
 C:\Users\Czarek\documents\visual studio 2013\Projects\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.MeasurementUnit.resources
 C:\Users\Czarek\documents\visual studio 2013\Projects\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.NutritionFacts.resources
 C:\Users\Czarek\documents\visual studio 2013\Projects\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.DailyValues.resources
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\RecipeService.dll.config
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\RecipeService.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\RecipeService.pdb
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\Antlr3.Runtime.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\EntityFramework.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\EntityFramework.SqlServer.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\Newtonsoft.Json.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Net.Http.Formatting.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Helpers.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Http.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Http.WebHost.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Mvc.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Optimization.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Razor.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.Razor.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\WebGrease.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\EntityFramework.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\EntityFramework.SqlServer.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\Newtonsoft.Json.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Net.Http.Formatting.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Helpers.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Http.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Http.WebHost.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Mvc.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Optimization.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.Razor.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\System.Web.WebPages.Razor.xml
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\bin\Antlr3.Runtime.pdb
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.csprojResolveAssemblyReference.cache
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.Initial.resources
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.MeasurementUnit.resources
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.NutritionFacts.resources
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.DailyValues.resources
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.csproj.GenerateResource.Cache
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.pdb

@@ -65,6 +65,12 @@
                 }
             });
         });
+
+        $('.downloadRecipe').click(function() {
+            var recipeId = $(this).attr('id').substring("download_".length);
+
+            window.location = "@Url.Action("DownloadRecipePdf")?recipeId=" + recipeId;
+        });
     });
 </script>
 
@@ -83,11 +89,11 @@
                 </div>
                 <div class="col-md-2">
                     <button id="summary_@recipeId" type="button" class="btn btn-default summary" aria-label="Left Align">
-                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>Nutrition facts
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>Nutritional values
                     </button>
                 </div>
                 <div class="col-md-1">
-                    <button id="download_@recipeId" type="button" class="btn btn-default summary" aria-label="Left Align">
+                    <button id="download_@recipeId" type="button" class="btn btn-default downloadRecipe" aria-label="Left Align">
                         <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>Pdf
                     </button>
                 </div>
@@ -95,7 +101,7 @@
             <div id="collapse_@recipeId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@recipeId">
                 <div class="panel-body">
                     <div class="panel panel-info">
-                        <div class="panel-heading"><h3 class="panel-title">Składniki</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Ingredients</h3></div>
                         <div class="panel-body">
                             <div class="list-group">
                                 @foreach (var ingredient in recipe.ingredients)
@@ -115,7 +121,7 @@
 
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Sposób przygotowania</h3>
+                            <h3 class="panel-title">Method</h3>
                         </div>
                         <div class="panel-body">
                             <div class="list-group">
@@ -144,7 +150,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <h4 class="modal-title" id="myModalLabel">Nutritional facts</h4>
             </div>
             <div id="nutritionFactContent" class="modal-body">
 

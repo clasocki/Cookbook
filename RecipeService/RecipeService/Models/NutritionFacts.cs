@@ -78,10 +78,6 @@ public partial class NutritionFact
 
     private Minerals mineralsField;
 
-    private Proteins proteinsField;
-
-    private Vitamins vitaminsField;
-
     private int idField;
 
     private decimal quantityField;
@@ -155,34 +151,6 @@ public partial class NutritionFact
         set
         {
             this.mineralsField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public Proteins proteins
-    {
-        get
-        {
-            return this.proteinsField;
-        }
-        set
-        {
-            this.proteinsField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public Vitamins vitamins
-    {
-        get
-        {
-            return this.vitaminsField;
-        }
-        set
-        {
-            this.vitaminsField = value;
         }
     }
 
@@ -348,10 +316,6 @@ public partial class DailyValues
 
     private Minerals mineralsField;
 
-    private Proteins proteinsField;
-
-    private Vitamins vitaminsField;
-
     /// <uwagi/>
     [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
     public Fats fats
@@ -405,34 +369,6 @@ public partial class DailyValues
         set
         {
             this.mineralsField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public Proteins proteins
-    {
-        get
-        {
-            return this.proteinsField;
-        }
-        set
-        {
-            this.proteinsField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public Vitamins vitamins
-    {
-        get
-        {
-            return this.vitaminsField;
-        }
-        set
-        {
-            this.vitaminsField = value;
         }
     }
 }
@@ -671,138 +607,6 @@ public partial class Minerals
         set
         {
             this.sodiumField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public WeightUnit units
-    {
-        get
-        {
-            return this.unitsField;
-        }
-        set
-        {
-            this.unitsField = value;
-        }
-    }
-}
-
-/// <uwagi/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.18020")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://students.mimuw.edu.pl/~cl320813/nutritionFacts")]
-public partial class Proteins
-{
-
-    private WeightUnit unitsField;
-
-    private decimal valueField;
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlAttributeAttribute()]
-    public WeightUnit units
-    {
-        get
-        {
-            return this.unitsField;
-        }
-        set
-        {
-            this.unitsField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlTextAttribute()]
-    public decimal Value
-    {
-        get
-        {
-            return this.valueField;
-        }
-        set
-        {
-            this.valueField = value;
-        }
-    }
-}
-
-/// <uwagi/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.18020")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://students.mimuw.edu.pl/~cl320813/nutritionFacts")]
-public partial class Vitamins
-{
-
-    private decimal aField;
-
-    private decimal cField;
-
-    private decimal dField;
-
-    private decimal eField;
-
-    private WeightUnit unitsField;
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public decimal A
-    {
-        get
-        {
-            return this.aField;
-        }
-        set
-        {
-            this.aField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public decimal C
-    {
-        get
-        {
-            return this.cField;
-        }
-        set
-        {
-            this.cField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public decimal D
-    {
-        get
-        {
-            return this.dField;
-        }
-        set
-        {
-            this.dField = value;
-        }
-    }
-
-    /// <uwagi/>
-    [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified)]
-    public decimal E
-    {
-        get
-        {
-            return this.eField;
-        }
-        set
-        {
-            this.eField = value;
         }
     }
 

@@ -26,12 +26,8 @@ namespace RecipeService.Controllers
                 .Include(x => x.content)
                 .Include(x => x.ingredients)
                 .ToArray();
-            //var ingredients = db.Ingredients.ToList();
-            //var recipeSections = db.RecipeSections.ToList();
-            //var nutritionFacts = db.NutritionFacts.ToList();
 
             return new Recipes {recipe = recipes};
-
         }
 
         [Route("summary/{recipeId:int}")]
@@ -51,13 +47,6 @@ namespace RecipeService.Controllers
             var ingredients = recipe.ingredients;
             var nutritionFacts = ingredients.Select(x => x.NutritionFact).ToList();
 
-            //var recalculatedNutritionFacts = from fact in nutritionFacts
-            //                                 join ingredient in ingredients
-            //                                 on fact.id equals ingredient.NutritionFactId
-            //                                 into joinedFacts
-            //                                 from joinedFact in joinedFacts
-            //                                 select 
-
             var dailyValues = db.DailyValues.Find(1);
 
             return Ok(new RecipeSummary
@@ -68,17 +57,17 @@ namespace RecipeService.Controllers
             });
         }
 
-        //// GET api/Recipe
-        //public IQueryable<Recipe> GetRecipes()
-        //{
-        //    return db.Recipes;
-        //}
-
-        // GET api/Recipe/5
+        // GET api/Recipes/5
+        [Route("{id:int}")]
         [ResponseType(typeof(Recipe))]
-        public IHttpActionResult GetRecipe(string id)
+        public IHttpActionResult GetRecipe(int id)
         {
-            Recipe recipe = db.Recipes.Find(id);
+            var recipe = db.Recipes
+                .Include(x => x.ingredients)
+                .Include(x => x.content)
+                .Include(x => x.ingredients)
+                .SingleOrDefault(x => x.id == id);
+
             if (recipe == null)
             {
                 return NotFound();

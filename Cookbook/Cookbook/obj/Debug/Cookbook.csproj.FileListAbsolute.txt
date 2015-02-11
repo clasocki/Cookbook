@@ -72,3 +72,5 @@ C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\System.Web.WebPa
 C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\System.Web.WebPages.Razor.xml
 C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\Antlr3.Runtime.pdb
+C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\Fonet.dll
+C:\Users\Czarek\Documents\GitHub\Cookbook\Cookbook\Cookbook\bin\Fonet.xml

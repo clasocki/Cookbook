@@ -162,6 +162,10 @@
     <Compile Include="Migrations\201502081640405_DailyValues.Designer.cs">
       <DependentUpon>201502081640405_DailyValues.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502112241162_VitaminsProteinsDeleted.cs" />
+    <Compile Include="Migrations\201502112241162_VitaminsProteinsDeleted.Designer.cs">
+      <DependentUpon>201502112241162_VitaminsProteinsDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\NutritionFacts.cs" />
     <Compile Include="Models\Recipes.cs" />
@@ -231,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502081640405_DailyValues.resx">
       <DependentUpon>201502081640405_DailyValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502112241162_VitaminsProteinsDeleted.resx">
+      <DependentUpon>201502112241162_VitaminsProteinsDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

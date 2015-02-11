@@ -100,11 +100,10 @@
     <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
   </xs:complexType>
 
-  <xs:complexType name="Proteins">
+  <!--<xs:complexType name="Proteins">
     <xs:simpleContent>
       <xs:extension base="xs:decimal">
         <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-        <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -117,8 +116,7 @@
       <xs:element name="E" type="xs:decimal" />
     </xs:sequence>
     <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-    <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
-  </xs:complexType>
+  </xs:complexType>-->
 
   <xs:group name="NutritionFactCategories">
     <xs:sequence>
@@ -126,8 +124,8 @@
       <xs:element name="calories" type="tns:Calories" />
       <xs:element name="carbohydrates" type="tns:Carbohydrates" />
       <xs:element name="minerals" type="tns:Minerals" />
-      <xs:element name="proteins" type="tns:Proteins" />
-      <xs:element name="vitamins" type="tns:Vitamins" />
+      <!--<xs:element name="proteins" type="tns:Proteins" />
+      <xs:element name="vitamins" type="tns:Vitamins" />-->
     </xs:sequence>
   </xs:group>
 

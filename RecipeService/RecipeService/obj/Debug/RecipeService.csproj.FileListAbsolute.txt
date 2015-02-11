@@ -80,3 +80,4 @@ C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\
 C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.csproj.GenerateResource.Cache
 C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.dll
 C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.pdb
+C:\Users\Czarek\Documents\GitHub\Cookbook\RecipeService\RecipeService\obj\Debug\RecipeService.Migrations.VitaminsProteinsDeleted.resources

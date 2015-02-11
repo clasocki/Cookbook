@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fonet">
+      <HintPath>..\packages\Fonet.1.0\lib\net20\Fonet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -142,6 +145,7 @@
     <Content Include="App_Data\nutritionLabel.xsl">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_Data\recipe.xml" />
     <Content Include="App_Data\recipeSummary.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -165,9 +169,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="App_Data\recipe.xsl">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="App_Data\nutritionFacts.xsd">
       <SubType>Designer</SubType>
     </None>

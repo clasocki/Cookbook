@@ -14,8 +14,10 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Xml.Xsl;
 using Cookbook.Models;
+using Fonet;
 using Saxon;
 using Saxon.Api;
+using Recipe = Cookbook.Models.Recipe;
 
 namespace Cookbook.Controllers
 {
@@ -139,6 +141,35 @@ namespace Cookbook.Controllers
             }
 
             return "";
+        }
+
+        public async Task DownloadRecipePdf(int recipeId)
+        {
+            var response = await CallRestApiAsync(string.Format("api/Recipes/{0}", recipeId));
+
+            if (!response.IsSuccessStatusCode) return;
+
+            var recipeXml = await response.Content.ReadAsStringAsync();
+
+            var xsltDocPath = Server.MapPath("~/App_Data/printableRecipe.xsl");
+            var printableRecipe = Transform(recipeXml, xsltDocPath);
+
+            var xslFoDocument = new XmlDocument();
+            xslFoDocument.LoadXml(printableRecipe);
+
+            using (var stream = new FileStream(Server.MapPath("~/App_Data/recipe.pdf"), FileMode.Create))
+            {
+                var pdfConverter = FonetDriver.Make();
+                pdfConverter.Render(xslFoDocument, stream);
+  
+            }
+
+            Response.AppendHeader("Content-Type", "application/octet-stream");
+            Response.AppendHeader("Content-Transfer-Encoding", "Binary");
+            Response.AppendHeader("Content-Disposition", "attachment; filename=recipe.pdf");
+
+            Response.WriteFile(Server.MapPath("~/App_Data/recipe.pdf"));
+            Response.End();
         }
 
         public ActionResult About()

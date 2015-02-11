@@ -105,34 +105,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
             <xsl:with-param name="category">Sodium</xsl:with-param>
             <xsl:with-param name="node" select="$base/minerals/Sodium" />
           </xsl:call-template>
-
-          <!-- PROTEINS -->
-          <xsl:call-template name="single-super-fact-row">
-            <xsl:with-param name="category">Proteins</xsl:with-param>
-            <xsl:with-param name="node" select="$base/proteins" />
-          </xsl:call-template>
-
-          <!-- VITAMINS -->
-          <xsl:call-template name="super-fact-row">
-            <xsl:with-param name="category">Total vitamins</xsl:with-param>
-            <xsl:with-param name="node" select="$base/vitamins" />
-          </xsl:call-template>
-          <xsl:call-template name="sub-fact-row">
-            <xsl:with-param name="category">A</xsl:with-param>
-            <xsl:with-param name="node" select="$base/vitamins/A" />
-          </xsl:call-template>
-          <xsl:call-template name="sub-fact-row">
-            <xsl:with-param name="category">C</xsl:with-param>
-            <xsl:with-param name="node" select="$base/vitamins/C" />
-          </xsl:call-template>
-          <xsl:call-template name="sub-fact-row">
-            <xsl:with-param name="category">D</xsl:with-param>
-            <xsl:with-param name="node" select="$base/vitamins/D" />
-          </xsl:call-template>
-          <xsl:call-template name="sub-fact-row">
-            <xsl:with-param name="category">E</xsl:with-param>
-            <xsl:with-param name="node" select="$base/vitamins/E" />
-          </xsl:call-template>
         </tbody>
       </table>
       <p class="small-info">* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs:</p>
@@ -193,32 +165,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
       <td>
         <b>
           <xsl:value-of select="round(100 * $total div $total-recommended)"/>%
-        </b>
-      </td>
-    </tr>
-  </xsl:template>
-
-  <xsl:template name="single-super-fact-row">
-    <xsl:param name="category" />
-    <xsl:param name="node" />
-    <!--<xsl:variable name="total" select="$node * $quantity div @quantity" />-->
-    <xsl:variable name="total">
-      <xsl:call-template name="superFactTotalValueCalculation">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
-    </xsl:variable>
-    <tr>
-      <th colspan="2">
-        <b>
-          <xsl:value-of select="$category"/>
-        </b>
-        <xsl:text> </xsl:text>
-        <xsl:value-of select="$total"/>
-        <xsl:value-of select="$node/@units"/>
-      </th>
-      <td>
-        <b>
-          <xsl:value-of select="round(100 * $total div //daily-values/*[name(.)=name($node)])"/>%
         </b>
       </td>
     </tr>

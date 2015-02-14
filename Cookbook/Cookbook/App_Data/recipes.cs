@@ -220,7 +220,7 @@ public enum TimeUnit
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://students.mimuw.edu.pl/~cl320813/recipes")]
 public partial class RecipeSection
 {
-    [XmlIgnore]
+    [XmlAttribute]
     public int id { get; set; }
 
     private string nameField;
@@ -264,7 +264,7 @@ public partial class RecipeSection
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://students.mimuw.edu.pl/~cl320813/recipes")]
 public partial class Ingredient
 {
-    [XmlIgnore]
+    [XmlAttribute]
     public int id { get; set; }
 
     [System.Xml.Serialization.XmlAttributeAttribute(AttributeName = "factId")]

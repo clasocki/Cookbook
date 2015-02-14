@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using RecipeService.Models;
+using WebGrease.Css.Extensions;
 
 namespace RecipeService.Controllers
 {
@@ -89,8 +90,43 @@ namespace RecipeService.Controllers
                 return BadRequest();
             }
 
-            db.Entry(recipe).State = EntityState.Modified;
+            var context = ((IObjectContextAdapter)db).ObjectContext;
 
+            db.Ingredients.ForEach(i =>
+            {
+                if (!recipe.ingredients.Any(x => x.id == i.id))
+                    db.Ingredients.Remove(i);
+                else
+                    context.Detach(i);
+            });
+
+            
+
+            db.RecipeSections.ForEach(section =>
+            {
+                if (!recipe.content.Any(x => x.id == section.id))
+                    db.RecipeSections.Remove(section);
+                else
+                    context.Detach(section);
+            });
+
+            recipe.ingredients.ForEach(i =>
+            {
+                if (i.id == 0)
+                    db.Ingredients.Add(i);
+                else
+                    db.Entry(i).State = EntityState.Modified;
+            });
+            recipe.content.ForEach(section =>
+            {
+                if (section.id == 0)
+                    db.RecipeSections.Add(section);
+                else
+                    db.Entry(section).State = EntityState.Modified;
+            });
+
+            db.Entry(recipe).State = EntityState.Modified;
+            
             try
             {
                 db.SaveChanges();

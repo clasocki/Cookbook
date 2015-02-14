@@ -151,7 +151,7 @@
 
 <recipe-summary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tempuri.org/recipeSummary.xsd">
   <ingredients xmlns="">
-    <ingredient factId="1">
+    <ingredient factId="1" id="1">
       <name>aa</name>
       <quantity>1.00</quantity>
       <units>dag</units>

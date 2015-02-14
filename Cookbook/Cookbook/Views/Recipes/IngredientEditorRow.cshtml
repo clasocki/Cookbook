@@ -12,6 +12,7 @@
 <div class="ingredientEditorRow">
     @using (Html.BeginCollectionItem("ingredients"))
     {
+        @Html.HiddenFor(model => model.id)
         <div class="col-md-4">
             @Html.LabelFor(model => model.NutritionFactId)
             @Html.DropDownList("NutritionFactId")

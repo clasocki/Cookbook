@@ -360,7 +360,7 @@ public enum MeasurementUnit
     tbsp,
 
     /// <uwagi/>
-    cup,
+    cup
 }
 
 /*[System.SerializableAttribute()]

@@ -1,0 +1,161 @@
+﻿@model NutritionFact
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>NutritionFact</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.foodname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.foodname)
+                @Html.ValidationMessageFor(model => model.foodname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.quantity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.quantity)
+                @Html.ValidationMessageFor(model => model.quantity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.units, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+                @Html.ValidationMessageFor(model => model.units)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fats, new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.fats.units)
+                @Html.DropDownListFor(model => model.fats.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.fats.monounsaturatedfat)
+                @Html.TextBoxFor(model => model.fats.monounsaturatedfat)
+                @Html.ValidationMessageFor(model => model.fats.monounsaturatedfat)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.fats.polyunsaturatedfat)
+                @Html.TextBoxFor(model => model.fats.polyunsaturatedfat)
+                @Html.ValidationMessageFor(model => model.fats.polyunsaturatedfat)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.fats.saturatedfat)
+                @Html.TextBoxFor(model => model.fats.saturatedfat)
+                @Html.ValidationMessageFor(model => model.fats.saturatedfat)
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.calories, new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.calories.units)
+                @Html.DropDownListFor(model => model.calories.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.calories.fromfat)
+                @Html.TextBoxFor(model => model.calories.fromfat)
+                @Html.ValidationMessageFor(model => model.calories.fromfat)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.calories.fromprotein)
+                @Html.TextBoxFor(model => model.calories.fromprotein)
+                @Html.ValidationMessageFor(model => model.calories.fromprotein)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.calories.fromcarbohydrate)
+                @Html.TextBoxFor(model => model.calories.fromcarbohydrate)
+                @Html.ValidationMessageFor(model => model.calories.fromcarbohydrate)
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.carbohydrates, new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.carbohydrates.units)
+                @Html.DropDownListFor(model => model.carbohydrates.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+            </div>
+
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.carbohydrates.dietaryfiber)
+                @Html.TextBoxFor(model => model.carbohydrates.dietaryfiber)
+                @Html.ValidationMessageFor(model => model.carbohydrates.dietaryfiber)
+            </div>
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.carbohydrates.sugars)
+                @Html.TextBoxFor(model => model.carbohydrates.sugars)
+                @Html.ValidationMessageFor(model => model.carbohydrates.sugars)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.minerals, new { @class = "control-label col-md-2" })
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.units)
+                @Html.DropDownListFor(model => model.minerals.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+            </div>
+
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.Calcium)
+                @Html.TextBoxFor(model => model.minerals.Calcium)
+                @Html.ValidationMessageFor(model => model.minerals.Calcium)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.Magnesium)
+                @Html.TextBoxFor(model => model.minerals.Magnesium)
+                @Html.ValidationMessageFor(model => model.minerals.Magnesium)
+            </div>
+
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.Potassium)
+                @Html.TextBoxFor(model => model.minerals.Potassium)
+                @Html.ValidationMessageFor(model => model.minerals.Potassium)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.Sodium)
+                @Html.TextBoxFor(model => model.minerals.Sodium)
+                @Html.ValidationMessageFor(model => model.minerals.Sodium)
+            </div>
+            <div class="col-md-1">
+                @Html.LabelFor(model => model.minerals.Iron)
+                @Html.TextBoxFor(model => model.minerals.Iron)
+                @Html.ValidationMessageFor(model => model.minerals.Iron)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

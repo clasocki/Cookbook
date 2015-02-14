@@ -1,0 +1,33 @@
+﻿@using System.Web.UI.WebControls
+@model Ingredient
+<style type="text/css">    
+    .ingredientEditorRow {
+        border: 2px solid #a1a1a1;
+        padding: 10px 40px;
+        height: 50px;
+        border-radius: 25px;
+    }
+</style>
+
+<div class="ingredientEditorRow">
+    @using (Html.BeginCollectionItem("ingredients"))
+    {
+        <div class="col-md-4">
+            @Html.LabelFor(model => model.NutritionFactId)
+            @Html.DropDownList("NutritionFactId")
+        </div>
+        <div class="col-md-3">
+            @Html.LabelFor(model => model.quantity)
+            @Html.EditorFor(model => model.quantity)
+        </div>
+        <div class="col-md-2">
+            @Html.LabelFor(model => model.units)
+            @Html.DropDownListFor(model => model.units, EnumHelper.GetSelectList(typeof(MeasurementUnit)))
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="deleteIngredientRow btn btn-danger">Delete</a>
+        </div>
+        
+    }
+</div>
+<br/>

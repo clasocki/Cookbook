@@ -1,0 +1,29 @@
+﻿@model RecipeSection
+<style type="text/css">
+    .recipeSectionRow {
+        border: 2px solid #a1a1a1;
+        padding: 10px 40px;
+        border-radius: 25px;
+    }
+</style>
+           
+<div class="recipeSectionRow container-fluid">
+    @using (Html.BeginCollectionItem("Content"))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.name)
+                @Html.TextBoxFor(model => model.name, new { @class = "form-control" })
+            </div>
+            <div class="col-md-5">
+                @Html.LabelFor(model => model.SectionText)
+                @Html.TextAreaFor(model => model.SectionText, new { @class = "form-control", rows = 10})
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="deleteRecipeSectionRow btn btn-danger">delete</a>
+            </div>
+        </div>
+        
+    }
+</div>
+<br/>

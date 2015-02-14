@@ -1,0 +1,13 @@
+﻿@model PreparationTime
+
+<div class="col-md-10">
+    @Html.LabelFor(model => model.time)
+    @Html.EditorFor(model => model.time)
+    @Html.ValidationMessageFor(model => model.time)
+</div>
+<div class="col-md-10">
+    @Html.LabelFor(model => model.units)
+    @Html.DropDownListFor(model => model.units, EnumHelper.GetSelectList(typeof(TimeUnit)))
+</div>
+    
+

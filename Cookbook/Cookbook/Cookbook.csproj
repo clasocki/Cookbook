@@ -156,7 +156,6 @@
     <Content Include="App_Data\nutritionLabel.xsl">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\recipe.xml" />
     <Content Include="App_Data\recipeSummary.xml">
       <SubType>Designer</SubType>
     </Content>

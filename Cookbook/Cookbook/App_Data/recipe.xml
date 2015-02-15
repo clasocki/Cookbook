@@ -1,8 +1,0 @@
-﻿<Recipe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="1">
-  <title>b</title>
-  <preparationTime>
-    <time>1.00</time>
-    <units>min</units>
-  </preparationTime>
-  <portions>1</portions>
-</Recipe>

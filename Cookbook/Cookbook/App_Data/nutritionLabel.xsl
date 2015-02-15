@@ -2,10 +2,6 @@
 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html" indent="yes"/>
   
-  <!--<xsl:template name="super-fact-row"/>
-  <xsl:template name="sub-fact-row"/>
-  <xsl:template name="single-super-fact-row"/>-->
-  
   <xsl:template name="nutrition-label">
     <xsl:param name="base"/>
     <div class="performance-facts">
@@ -119,7 +115,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="super-fact-row">
     <xsl:param name="category" />
     <xsl:param name="node" />
-    <!--<xsl:variable name="total" select="sum($node/*) * $quantity div @quantity" />-->
     <xsl:variable name="total">
       <xsl:call-template name="superFactTotalValueCalculation">
         <xsl:with-param name="node" select="$node"/>
@@ -146,7 +141,6 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="sub-fact-row">
     <xsl:param name="category" />
     <xsl:param name="node" />
-    <!--<xsl:variable name="total" select="$node * $quantity div @quantity"/>-->
     <xsl:variable name="total">
       <xsl:call-template name="subFactTotalValueCalculation">
         <xsl:with-param name="node" select="$node"/>

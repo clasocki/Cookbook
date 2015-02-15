@@ -11,38 +11,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-<!--  <xs:simpleType name="VolumeUnit">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="l" />
-      <xs:enumeration value="ml" />
-      <xs:enumeration value="tsp" />
-      <xs:enumeration value="tbsp" />
-      <xs:enumeration value="cup" />
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="WeightUnit">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="kg" />
-      <xs:enumeration value="dag" />
-      <xs:enumeration value="g" />
-      <xs:enumeration value="mg" />
-      <xs:enumeration value="oz" />
-      <xs:enumeration value="lb" />
-    </xs:restriction>
-  </xs:simpleType>-->
-
-  <!--<xs:simpleType name="EnergyUnit">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="kJ" />
-      <xs:enumeration value="kcal" />
-    </xs:restriction>
-  </xs:simpleType>-->
-
-  <!--<xs:simpleType name="MeasurementUnit">
-    <xs:union memberTypes="tns:WeightUnit tns:VolumeUnit" />
-  </xs:simpleType>-->
-
   <xs:simpleType name="MeasurementUnit">
     <xs:restriction base="xs:string">
       <!-- Weight units -->
@@ -80,23 +48,7 @@
     <xs:attribute name="factId" type="xs:int" use="required"/>
   </xs:complexType>
 
-  <!--<xs:complexType name="IngredientRef">
-    <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute name="ingredient-name" type="xs:string" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>-->
-
-  <!--<xs:group name="RecipeContent">
-    <xs:choice>
-      <xs:element name="ingredient-ref" type="tns:IngredientRef" />
-      <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
-    </xs:choice>
-  </xs:group>-->
-
   <xs:complexType name="RecipeSection" mixed="true">
-    <!--<xs:group ref="tns:RecipeContent" minOccurs="1" maxOccurs="unbounded" />-->
     <xs:simpleContent>
       <xs:extension base="xs:string">
         <xs:attribute name="name" type="xs:string" use="required" />
@@ -148,120 +100,10 @@
     </xs:sequence>
   </xs:complexType>
 
-  <!--<xs:complexType name="CookBook">
-    <xs:sequence>
-      <xs:element name="recipes" type="tns:Recipes" />
-      <xs:element name="nutrition-facts" type="tns:NutritionFacts" />
-      <xs:element name="daily-values" type="tns:DailyValues" />
-    </xs:sequence>
-  </xs:complexType>-->
-
   <xs:element name="recipes" type="tns:Recipes">
     <xs:key name="recipe-key">
       <xs:selector xpath="recipe"/>
       <xs:field xpath="@id"/>
     </xs:key>
   </xs:element>
-
-  <!--<xs:element name="cookbook" type="tns:CookBook">
-    <xs:key name="nutrition-fact-food-key">
-      <xs:selector xpath="nutrition-facts/nutrition-fact" />
-      <xs:field xpath="food-name" />
-    </xs:key>
-    <xs:key name="recipe-name-key">
-      <xs:selector xpath="recipes/recipe"/>
-      <xs:field xpath="title"/>
-    </xs:key>
-
-    <xs:keyref name="ingredient-name-keyref"  refer="tns:nutrition-fact-food-key">
-      <xs:selector xpath="recipes/recipe/ingredients/ingredient" />
-      <xs:field xpath="name" />
-    </xs:keyref>
-  </xs:element>-->
-
-<!--  <xs:complexType name="Calories">
-    <xs:sequence>
-      <xs:element name="from-carbohydrate" type="xs:decimal" />
-      <xs:element name="from-fat" type="xs:decimal" />
-      <xs:element name="from-protein" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:EnergyUnit" use="required" />
-  </xs:complexType>
-
-
-  <xs:complexType name="Fats">
-    <xs:sequence>
-      <xs:element name="saturated-fat" type="xs:decimal" />
-      <xs:element name="monounsaturated-fat" type="xs:decimal" />
-      <xs:element name="polyunsaturated-fat" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-  </xs:complexType>
-
-  <xs:complexType name="Minerals">
-    <xs:sequence>
-      <xs:element name="Calcium" type="xs:decimal" />
-      <xs:element name="Iron" type="xs:decimal" />
-      <xs:element name="Magnesium" type="xs:decimal" />
-      <xs:element name="Potassium" type="xs:decimal" />
-      <xs:element name="Sodium" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-  </xs:complexType>
-
-  <xs:complexType name="Carbohydrates">
-    <xs:sequence>
-      <xs:element name="dietary-fiber" type="xs:decimal" />
-      <xs:element name="sugars" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-  </xs:complexType>
-
-  <xs:complexType name="Proteins">
-    <xs:simpleContent>
-      <xs:extension base="xs:decimal">
-        <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:complexType name="Vitamins">
-    <xs:sequence>
-      <xs:element name="A" type="xs:decimal" />
-      <xs:element name="C" type="xs:decimal" />
-      <xs:element name="D" type="xs:decimal" />
-      <xs:element name="E" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-  </xs:complexType>
-
-  <xs:group name="NutritionFactCategories">
-    <xs:sequence>
-      <xs:element name="fats" type="tns:Fats" />
-      <xs:element name="calories" type="tns:Calories" />
-      <xs:element name="carbohydrates" type="tns:Carbohydrates" />
-      <xs:element name="minerals" type="tns:Minerals" />
-      <xs:element name="proteins" type="tns:Proteins" />
-      <xs:element name="vitamins" type="tns:Vitamins" />
-    </xs:sequence>
-  </xs:group>
-
-  <xs:complexType name="NutritionFact">
-    <xs:sequence>
-      <xs:element name="food-name" type="xs:string" />
-      <xs:group ref="tns:NutritionFactCategories" />
-    </xs:sequence>
-    <xs:attribute name="quantity" type="xs:decimal" use="required" />
-    <xs:attribute name="units" type="tns:MeasurementUnit" use="required" />
-  </xs:complexType>
-
-  <xs:complexType name="DailyValues">
-    <xs:group ref="tns:NutritionFactCategories" />
-  </xs:complexType>
-
-  <xs:complexType name="NutritionFacts">
-    <xs:sequence>
-      <xs:element name="nutrition-fact" type="tns:NutritionFact" minOccurs="1" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>-->
 </xs:schema>

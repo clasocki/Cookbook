@@ -1,65 +1,100 @@
-﻿<nutritionData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://students.mimuw.edu.pl/~cl320813/nutritionFacts">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nutritionData xmlns="http://students.mimuw.edu.pl/~cl320813/nutritionFacts">
   <nutrition-facts xmlns="">
-    <nutrition-fact id="1" quantity="1.00" units="dag">
-      <food-name>aa</food-name>
+    <nutrition-fact id="1" quantity="1" units="kg">
+      <food-name>food-name1</food-name>
+      <fats units="kg">
+        <saturated-fat>1</saturated-fat>
+        <monounsaturated-fat>1</monounsaturated-fat>
+        <polyunsaturated-fat>1</polyunsaturated-fat>
+      </fats>
+      <calories units="kJ">
+        <from-carbohydrate>1</from-carbohydrate>
+        <from-fat>1</from-fat>
+        <from-protein>1</from-protein>
+      </calories>
+      <carbohydrates units="kg">
+        <dietary-fiber>1</dietary-fiber>
+        <sugars>1</sugars>
+      </carbohydrates>
+      <minerals units="kg">
+        <Calcium>1</Calcium>
+        <Iron>1</Iron>
+        <Magnesium>1</Magnesium>
+        <Potassium>1</Potassium>
+        <Sodium>1</Sodium>
+      </minerals>
+    </nutrition-fact>
+    <nutrition-fact id="-2147483647" quantity="-79228162514264337593543950335" units="dag">
+      <food-name>food-name2</food-name>
       <fats units="dag">
-        <saturated-fat>1.00</saturated-fat>
-        <monounsaturated-fat>1.00</monounsaturated-fat>
-        <polyunsaturated-fat>1.00</polyunsaturated-fat>
+        <saturated-fat>-79228162514264337593543950335</saturated-fat>
+        <monounsaturated-fat>-79228162514264337593543950335</monounsaturated-fat>
+        <polyunsaturated-fat>-79228162514264337593543950335</polyunsaturated-fat>
       </fats>
       <calories units="kcal">
-        <from-carbohydrate>1.00</from-carbohydrate>
-        <from-fat>1.00</from-fat>
-        <from-protein>1.00</from-protein>
+        <from-carbohydrate>-79228162514264337593543950335</from-carbohydrate>
+        <from-fat>-79228162514264337593543950335</from-fat>
+        <from-protein>-79228162514264337593543950335</from-protein>
       </calories>
       <carbohydrates units="dag">
-        <dietary-fiber>1.00</dietary-fiber>
-        <sugars>1.00</sugars>
+        <dietary-fiber>-79228162514264337593543950335</dietary-fiber>
+        <sugars>-79228162514264337593543950335</sugars>
       </carbohydrates>
       <minerals units="dag">
-        <Calcium>1.00</Calcium>
-        <Iron>1.00</Iron>
-        <Magnesium>1.00</Magnesium>
-        <Potassium>1.00</Potassium>
-        <Sodium>1.00</Sodium>
+        <Calcium>-79228162514264337593543950335</Calcium>
+        <Iron>-79228162514264337593543950335</Iron>
+        <Magnesium>-79228162514264337593543950335</Magnesium>
+        <Potassium>-79228162514264337593543950335</Potassium>
+        <Sodium>-79228162514264337593543950335</Sodium>
       </minerals>
-      <proteins units="dag">1.00</proteins>
-      <vitamins units="dag">
-        <A>1.00</A>
-        <C>1.00</C>
-        <D>1.00</D>
-        <E>1.00</E>
-      </vitamins>
+    </nutrition-fact>
+    <nutrition-fact id="2147483647" quantity="79228162514264337593543950335" units="g">
+      <food-name>food-name3</food-name>
+      <fats units="g">
+        <saturated-fat>79228162514264337593543950335</saturated-fat>
+        <monounsaturated-fat>79228162514264337593543950335</monounsaturated-fat>
+        <polyunsaturated-fat>79228162514264337593543950335</polyunsaturated-fat>
+      </fats>
+      <calories units="kJ">
+        <from-carbohydrate>79228162514264337593543950335</from-carbohydrate>
+        <from-fat>79228162514264337593543950335</from-fat>
+        <from-protein>79228162514264337593543950335</from-protein>
+      </calories>
+      <carbohydrates units="g">
+        <dietary-fiber>79228162514264337593543950335</dietary-fiber>
+        <sugars>79228162514264337593543950335</sugars>
+      </carbohydrates>
+      <minerals units="g">
+        <Calcium>79228162514264337593543950335</Calcium>
+        <Iron>79228162514264337593543950335</Iron>
+        <Magnesium>79228162514264337593543950335</Magnesium>
+        <Potassium>79228162514264337593543950335</Potassium>
+        <Sodium>79228162514264337593543950335</Sodium>
+      </minerals>
     </nutrition-fact>
   </nutrition-facts>
   <daily-values xmlns="">
-    <fats units="dag">
-      <saturated-fat>1.00</saturated-fat>
-      <monounsaturated-fat>1.00</monounsaturated-fat>
-      <polyunsaturated-fat>1.00</polyunsaturated-fat>
+    <fats units="mg">
+      <saturated-fat>0.9</saturated-fat>
+      <monounsaturated-fat>0.9</monounsaturated-fat>
+      <polyunsaturated-fat>0.9</polyunsaturated-fat>
     </fats>
     <calories units="kcal">
-      <from-carbohydrate>1.00</from-carbohydrate>
-      <from-fat>1.00</from-fat>
-      <from-protein>1.00</from-protein>
+      <from-carbohydrate>0.9</from-carbohydrate>
+      <from-fat>0.9</from-fat>
+      <from-protein>0.9</from-protein>
     </calories>
-    <carbohydrates units="dag">
-      <dietary-fiber>1.00</dietary-fiber>
-      <sugars>1.00</sugars>
+    <carbohydrates units="mg">
+      <dietary-fiber>0.9</dietary-fiber>
+      <sugars>0.9</sugars>
     </carbohydrates>
-    <minerals units="dag">
-      <Calcium>1.00</Calcium>
-      <Iron>1.00</Iron>
-      <Magnesium>1.00</Magnesium>
-      <Potassium>1.00</Potassium>
-      <Sodium>1.00</Sodium>
+    <minerals units="mg">
+      <Calcium>0.9</Calcium>
+      <Iron>0.9</Iron>
+      <Magnesium>0.9</Magnesium>
+      <Potassium>0.9</Potassium>
+      <Sodium>0.9</Sodium>
     </minerals>
-    <proteins units="dag">1.00</proteins>
-    <vitamins units="dag">
-      <A>1.00</A>
-      <C>1.00</C>
-      <D>1.00</D>
-      <E>1.00</E>
-    </vitamins>
   </daily-values>
 </nutritionData>

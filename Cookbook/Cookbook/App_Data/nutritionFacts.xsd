@@ -50,14 +50,6 @@
     </xs:restriction>
   </xs:simpleType>
   
-  <!--<xs:simpleType name="MeasurementUnit">
-    <xs:union memberTypes="tns:WeightUnit tns:VolumeUnit" />
-  </xs:simpleType>-->
-
-  <!--<xs:simpleType name="Unit">
-    <xs:union memberTypes="tns:WeightUnit tns:VolumeUnit tns:EnergyUnit"/>
-  </xs:simpleType>-->
-  
   <xs:complexType name="Calories">
     <xs:sequence>
       <xs:element name="from-carbohydrate" type="xs:decimal" />
@@ -65,7 +57,6 @@
       <xs:element name="from-protein" type="xs:decimal" />
     </xs:sequence>
     <xs:attribute name="units" type="tns:EnergyUnit" use="required" />
-    <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
   </xs:complexType>
 
 
@@ -76,7 +67,6 @@
       <xs:element name="polyunsaturated-fat" type="xs:decimal" />
     </xs:sequence>
     <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-    <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
   </xs:complexType>
 
   <xs:complexType name="Minerals">
@@ -88,7 +78,6 @@
       <xs:element name="Sodium" type="xs:decimal" />
     </xs:sequence>
     <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-    <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
   </xs:complexType>
 
   <xs:complexType name="Carbohydrates">
@@ -97,26 +86,7 @@
       <xs:element name="sugars" type="xs:decimal" />
     </xs:sequence>
     <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-    <!--<xs:attribute name="total" type="xs:decimal" use="required" />-->
   </xs:complexType>
-
-  <!--<xs:complexType name="Proteins">
-    <xs:simpleContent>
-      <xs:extension base="xs:decimal">
-        <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:complexType name="Vitamins">
-    <xs:sequence>
-      <xs:element name="A" type="xs:decimal" />
-      <xs:element name="C" type="xs:decimal" />
-      <xs:element name="D" type="xs:decimal" />
-      <xs:element name="E" type="xs:decimal" />
-    </xs:sequence>
-    <xs:attribute name="units" type="tns:WeightUnit" use="required" />
-  </xs:complexType>-->
 
   <xs:group name="NutritionFactCategories">
     <xs:sequence>
@@ -124,8 +94,6 @@
       <xs:element name="calories" type="tns:Calories" />
       <xs:element name="carbohydrates" type="tns:Carbohydrates" />
       <xs:element name="minerals" type="tns:Minerals" />
-      <!--<xs:element name="proteins" type="tns:Proteins" />
-      <xs:element name="vitamins" type="tns:Vitamins" />-->
     </xs:sequence>
   </xs:group>
 
@@ -149,26 +117,10 @@
     </xs:sequence>
   </xs:complexType>
   
- <!-- <xs:complexType name="Conversion">
-    <xs:simpleContent>
-      <xs:extension base="xs:double">
-        <xs:attribute name="from" type="tns:Unit" use="required"/>
-        <xs:attribute name="to" type="tns:Unit" use="required"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:complexType name="Conversions">
-    <xs:sequence>
-      <xs:element name="conv" type="tns:Conversion" minOccurs="1" maxOccurs="unbounded" />
-    </xs:sequence>
-  </xs:complexType>-->
-  
   <xs:complexType name="NutritionData">
     <xs:sequence>
       <xs:element name="nutrition-facts" type="tns:NutritionFacts" />
       <xs:element name="daily-values" type="tns:DailyValues" />
-     <!-- <xs:element name="conversions" type="tns:Conversions" />-->
     </xs:sequence>
   </xs:complexType>
 

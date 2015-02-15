@@ -344,12 +344,6 @@ public enum MeasurementUnit
     mg,
 
     /// <uwagi/>
-    oz,
-
-    /// <uwagi/>
-    lb,
-
-    /// <uwagi/>
     l,
 
     /// <uwagi/>
@@ -359,10 +353,7 @@ public enum MeasurementUnit
     tsp,
 
     /// <uwagi/>
-    tbsp,
-
-    /// <uwagi/>
-    cup,
+    tbsp
 }
 
 /*[System.SerializableAttribute()]

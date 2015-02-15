@@ -43,10 +43,12 @@
 
     $(function () {
         $('.ingredients').click(function () {
-            var nutritionFactId = $(this).attr('id').substring("ingredient_".length);
-            var ingredientQuantity = $('#iQty_' + nutritionFactId).html().replace(',', '.');
-            var ingredientUnits = $('#iUnits_' + nutritionFactId).html();
+            var nutritionFactRecipePair = $(this).attr('id').substring("ingredient_".length);
 
+            var ingredientQuantity = $('#iQty_' + nutritionFactRecipePair).html().replace(',', '.');
+            var ingredientUnits = $('#iUnits_' + nutritionFactRecipePair).html();
+
+            var nutritionFactId = nutritionFactRecipePair.split("-")[0];
             displayNutritionFact(nutritionFactId, ingredientQuantity, ingredientUnits);
 
         });
@@ -140,11 +142,11 @@
                             <div class="list-group">
                                 @foreach (var ingredient in recipe.ingredients)
                                 {
-                                    <a href="javascript:void(0)" id="ingredient_@ingredient.NutritionFactId" class="list-group-item ingredients">
+                                    <a href="javascript:void(0)" id="ingredient_@ingredient.NutritionFactId-@recipeId" class="list-group-item ingredients">
                                         <h4 class="list-group-item-heading">@Html.DisplayFor(modelItem => ingredient.name)</h4>
                                         <p class="list-group-item-text">
-                                            <span id="iQty_@ingredient.NutritionFactId">@ingredient.quantity</span>&nbsp;
-                                            <span id="iUnits_@ingredient.NutritionFactId">@ingredient.units</span>
+                                            <span id="iQty_@ingredient.NutritionFactId-@recipeId">@ingredient.quantity</span>&nbsp;
+                                            <span id="iUnits_@ingredient.NutritionFactId-@recipeId">@ingredient.units</span>
                                         </p>
                                     </a>
                                 }

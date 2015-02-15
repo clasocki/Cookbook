@@ -195,6 +195,9 @@ public partial class NutritionFact
             this.unitsField = value;
         }
     }
+
+    [XmlIgnore]
+    public double Density { get; set; }
 }
 
 /// <uwagi/>
@@ -453,12 +456,8 @@ public partial class Calories
 [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://students.mimuw.edu.pl/~cl320813/nutritionFacts")]
 public enum EnergyUnit
 {
-
     /// <uwagi/>
-    kJ,
-
-    /// <uwagi/>
-    kcal,
+    kcal
 }
 
 /// <uwagi/>

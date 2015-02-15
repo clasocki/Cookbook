@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using RecipeService.Models;
+using RecipeService.UnitConverter;
 using WebGrease.Css.Extensions;
 
 namespace RecipeService.Controllers
@@ -47,6 +48,12 @@ namespace RecipeService.Controllers
 
             var ingredients = recipe.ingredients;
             var nutritionFacts = ingredients.Select(x => x.NutritionFact).ToList();
+
+            nutritionFacts.ForEach(fact =>
+            {
+                var ingredientUnits = ingredients.First(x => x.NutritionFactId == fact.id).units;
+                fact.quantity = Convert.ToDecimal(UnitService.ConvertFromGrams(fact.quantity, ingredientUnits, fact.Density));
+            });
 
             var dailyValues = db.DailyValues.Find(1);
 

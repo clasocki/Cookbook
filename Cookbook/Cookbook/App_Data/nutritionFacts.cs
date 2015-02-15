@@ -163,6 +163,9 @@ public partial class NutritionFact {
             this.unitsField = value;
         }
     }
+
+    [XmlIgnore]
+    public double Density { get; set; }
 }
 
 /// <uwagi/>
@@ -242,13 +245,7 @@ public enum WeightUnit {
     g,
     
     /// <uwagi/>
-    mg,
-    
-    /// <uwagi/>
-    oz,
-    
-    /// <uwagi/>
-    lb,
+    mg
 }
 
 /// <uwagi/>
@@ -380,10 +377,7 @@ public partial class Calories {
 public enum EnergyUnit {
     
     /// <uwagi/>
-    kJ,
-    
-    /// <uwagi/>
-    kcal,
+    kcal
 }
 
 /// <uwagi/>

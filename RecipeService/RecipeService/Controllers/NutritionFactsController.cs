@@ -8,7 +8,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.UI.WebControls;
 using RecipeService.Models;
+using RecipeService.UnitConverter;
+using UnitsNet;
 
 namespace RecipeService.Controllers
 {
@@ -23,6 +26,8 @@ namespace RecipeService.Controllers
             var nutritionFact = db.NutritionFacts.Find(factId);
             if (nutritionFact == null)
                 return NotFound();
+
+            nutritionFact.quantity = Convert.ToDecimal(UnitService.ConvertFromGrams(nutritionFact.quantity, units, nutritionFact.Density));
 
             var dailyValues = db.DailyValues.Find(1);
             

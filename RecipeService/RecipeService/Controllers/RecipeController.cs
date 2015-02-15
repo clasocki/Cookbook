@@ -92,7 +92,9 @@ namespace RecipeService.Controllers
 
             var context = ((IObjectContextAdapter)db).ObjectContext;
 
-            db.Ingredients.ForEach(i =>
+            db.Ingredients
+                .Where(x => x.Recipe.id == id)
+                .ForEach(i =>
             {
                 if (!recipe.ingredients.Any(x => x.id == i.id))
                     db.Ingredients.Remove(i);
@@ -102,7 +104,9 @@ namespace RecipeService.Controllers
 
             
 
-            db.RecipeSections.ForEach(section =>
+            db.RecipeSections
+                .Where(x => x.Recipe.id == id)
+                .ForEach(section =>
             {
                 if (!recipe.content.Any(x => x.id == section.id))
                     db.RecipeSections.Remove(section);
@@ -178,9 +182,14 @@ namespace RecipeService.Controllers
 
         // DELETE api/Recipe/5
         [ResponseType(typeof(Recipe))]
-        public IHttpActionResult DeleteRecipe(string id)
+        public IHttpActionResult DeleteRecipe(int id)
         {
-            Recipe recipe = db.Recipes.Find(id);
+            var recipe = db.Recipes
+                .Include(x => x.ingredients)
+                .Include(x => x.content)
+                .Include(x => x.ingredients)
+                .SingleOrDefault(x => x.id == id);
+
             if (recipe == null)
             {
                 return NotFound();

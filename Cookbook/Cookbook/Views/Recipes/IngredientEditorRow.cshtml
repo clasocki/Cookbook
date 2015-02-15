@@ -15,11 +15,12 @@
         @Html.HiddenFor(model => model.id)
         <div class="col-md-4">
             @Html.LabelFor(model => model.NutritionFactId)
-            @Html.DropDownList("NutritionFactId")
+            @Html.DropDownListFor(model => model.NutritionFactId, new SelectList(ViewBag.NutritionFacts, "id", "foodname", Model.NutritionFact))
         </div>
         <div class="col-md-3">
             @Html.LabelFor(model => model.quantity)
             @Html.EditorFor(model => model.quantity)
+            @Html.ValidationMessageFor(model => model.quantity)
         </div>
         <div class="col-md-2">
             @Html.LabelFor(model => model.units)

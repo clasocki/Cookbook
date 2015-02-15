@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
@@ -253,6 +254,9 @@ public partial class RecipeSection
             this.textField = value;
         }
     }
+
+    [XmlIgnore]
+    public Recipe Recipe { get; set; }
 }
 
 /// <uwagi/>
@@ -319,6 +323,9 @@ public partial class Ingredient
             this.unitsField = value;
         }
     }
+
+    [XmlIgnore]
+    public Recipe Recipe { get; set; }
 }
 
 

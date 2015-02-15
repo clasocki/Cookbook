@@ -67,7 +67,8 @@ namespace Cookbook.Controllers
         private async Task PopulateIngredientsDropDownList(object selectedIngredient = null)
         {
             var nutritionFacts = await apiService.Get<List<NutritionFact>>("api/NutritionFacts/");
-            ViewBag.NutritionFactId = new SelectList(nutritionFacts, "id", "foodname", selectedIngredient);
+            //ViewBag.NutritionFactId = new SelectList(nutritionFacts, "id", "foodname", selectedIngredient);
+            ViewBag.NutritionFacts = nutritionFacts;
             TempData["nutritionFacts"] = nutritionFacts;
         }
 

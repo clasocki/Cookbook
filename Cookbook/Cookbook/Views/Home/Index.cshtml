@@ -120,6 +120,20 @@
             </div>
             <div id="collapse_@recipeId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_@recipeId">
                 <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h3 class="panel-title">Servings</h3></div>
+                        <div class="panel-body">
+                            Makes @recipe.portions servings.
+                        </div>
+                    </div>
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h3 class="panel-title">Preparation time</h3></div>
+                        <div class="panel-body">
+                            @recipe.preparationTime.time @recipe.preparationTime.units
+                        </div>
+                    </div>
+
                     <div class="panel panel-info">
                         <div class="panel-heading"><h3 class="panel-title">Ingredients</h3></div>
                         <div class="panel-body">
